@@ -3,64 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的个人网站</title>
+  <title>Shaobo Guo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    :root {
+      --primary-color: #ff2a70;
+      --text-color: #333;
+      --bg-color: #fff;
+    }
     body {
       margin: 0;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background: #f0f0f0;
-      color: #333;
-      text-align: center;
+      font-family: system-ui, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
     }
     header {
-      background: #4a90e2;
-      color: white;
-      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: var(--bg-color);
+      border-bottom: 1px solid #ddd;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
     }
-    section {
+    nav a:hover {
+      color: var(--primary-color);
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      max-width: 1000px;
       margin: 2rem auto;
-      max-width: 800px;
-      padding: 1rem;
-      background: white;
+      padding: 0 1rem;
+    }
+    .content {
+      padding-right: 1rem;
+    }
+    .profile-img {
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 250px;
+    }
+    h1 {
+      margin-top: 0;
     }
     a {
-      color: #4a90e2;
+      color: var(--primary-color);
       text-decoration: none;
     }
+    a:hover {
+      text-decoration: underline;
+    }
+    .social-icons i {
+      margin-right: 0.5rem;
+      color: var(--text-color);
+      font-size: 1.2rem;
+    }
+    .social-icons i:hover {
+      color: var(--primary-color);
+    }
     footer {
-      margin-top: 2rem;
-      padding: 1rem;
+      text-align: center;
       font-size: 0.9rem;
-      color: #666;
+      color: #777;
+      margin: 2rem 0;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>欢迎来到我的个人网站</h1>
-  <p>这是我在 GitHub Pages 上搭建的网站</p>
+  <div><strong>Shaobo Guo</strong></div>
+  <nav>
+    <a href="#">about</a>
+    <a href="#">blog</a>
+    <a href="#">publications</a>
+    <a href="#">cv</a>
+  </nav>
 </header>
 
-<section>
-  <h2>关于我</h2>
-  <p>你好！我是一名热爱编程和分享的开发者。这个网站是我在 GitHub Pages 上搭建的个人空间。</p>
+<div class="container">
+  <div class="content">
+    <p><strong>Shaobo Guo (郭少博). I'm now serving as an full time algorithm engineer in <Bytedance class="inc"></Bytedance> </p>
 
-  <h2>联系方式</h2>
-  <p>
-    📧 <a href="mailto:your.email@example.com">your.email@example.com</a><br>
-    🐙 <a href="https://github.com/yourusername" target="_blank">GitHub: @yourusername</a>
-  </p>
-</section>
+    <p>His research focuses on the intersection of <strong>machine learning systems</strong> and <strong>large language models</strong>.</p>
+
+    <p>He is a strong advocate for compuer vision research.</p>
+
+
+    <h2>selected publications</h2>
+    <p><strong>ICLR</strong> — Gated Delta Networks: Improving MambaB2 with Delta Rule (2025)</p>
+
+    <div class="social-icons">
+      <a href="mailto:absorbguo@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/absorbguo" target="_blank"><i class="fab fa-github"></i></a>
+      <!-- Google Scholar -->
+      <a href="https://scholar.google.com/citations?user=RdDDC9MAAAAJ&hl=zh-CN" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+    </div>
+  </div>
+
+  <div>
+    <img src="images/IMG_1275.jpeg" alt="Shaobo Guo" class="profile-img" />
+  </div>
+</div>
 
 <footer>
-  © 2025 你的名字 | 本页面由 GitHub Pages 托管
+  &copy; 2025 Shaobo Guo. Hosted on GitHub Pages.
 </footer>
 
 </body>
