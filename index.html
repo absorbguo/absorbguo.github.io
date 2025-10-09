@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
   :root {
-    --primary-color: #4B0082;  /* 深紫色主色调 */
+    --primary-color: #4B0082;
     --text-color: #333;
     --bg-color: #fff;
   }
@@ -32,6 +32,10 @@
   header strong {
     font-size: 1.2rem;
   }
+  nav {
+    display: flex;
+    align-items: center;
+  }
   nav a {
     margin-left: 1rem;
     text-decoration: none;
@@ -41,9 +45,24 @@
   nav a:hover {
     color: var(--primary-color);
   }
-  .container {
+  .lang-toggle {
+    margin-left: 1rem;
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .lang-toggle:hover {
+    background: var(--primary-color);
+    color: #fff;
+  }
+  main.container {
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* 均分两栏布局 */
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     max-width: 1000px;
     margin: 2rem auto;
@@ -83,13 +102,17 @@
     height: 36px;
     line-height: 36px;
     text-align: center;
+    transition: 0.3s;
+  }
+  .social-icons a:hover {
+    background: var(--primary-color);
+  }
+  .social-icons a:hover i {
+    color: #fff;
   }
   .social-icons i {
     color: #555;
     font-size: 1.2rem;
-  }
-  .social-icons i:hover {
-    color: var(--primary-color);
   }
   footer {
     text-align: center;
@@ -108,19 +131,37 @@
     <a href="#">blog</a>
     <a href="#">publications</a>
     <a href="#">cv</a>
+    <button class="lang-toggle" id="langBtn">中文</button>
   </nav>
 </header>
 
-<div class="container">
+<main class="container">
   <div class="content">
-    <p><strong>Shaobo Guo (郭少博)</strong>. I'm now serving as a full time algorithm engineer in Bytedance.</p>
 
-    <p>His research focuses on the intersection of <strong>machine learning systems</strong> and <strong>large language models</strong>.</p>
+    <!-- 英文版介绍 -->
+    <div id="intro-en">
+      <p><strong>Shaobo Guo (郭少博)</strong>. I'm currently working as a full-time algorithm engineer at Bytedance.</p>
 
-    <p>He is a strong advocate for computer vision research.</p>
+      <p>My work focuses on areas such as <strong>computer vision</strong> and <strong>multi-modal large language models</strong>. 
+      I have extensive experience in applying advanced algorithms to real-world business scenarios, building end-to-end systems that 
+      directly support and optimize company operations. Over the past few years, I have led or participated in multiple 
+      projects that significantly improved efficiency and solved complex business problems through intelligent algorithmic design and 
+      system-level implementation.</p>
+    </div>
 
-    <h2>selected publications</h2>
+    <!-- 中文版介绍（默认隐藏） -->
+    <div id="intro-zh" style="display:none;">
+      <p><strong>郭少博</strong>，现任字节跳动算法工程师，主要研究方向包括<strong>计算机视觉</strong>与<strong>多模态大语言模型</strong>。</p>
+
+      <p>在工作中，我专注于将算法能力落地到具体的业务场景，构建端到端的智能系统，直接支撑并优化公司运营。
+      过去几年中，我主导或参与了多个项目，通过算法设计与系统实现解决了复杂的业务问题，显著提升了效率与智能化水平。</p>
+    </div>
+
+    <h2>Conference Publications</h2>
     <p><strong>ICCV 2025</strong> — <a href="https://arxiv.org/abs/2412.01818v1">Beyond Text-Visual Attention: Exploiting Visual Cues for Effective Token Pruning in VLMs</a></p>
+
+    <h3>Tech Reports</h3>
+    <p><strong>Tech Reports</strong> — <a href="https://arxiv.org/abs/2406.18193">Mammothmoda: Multi-modal large language model</a></p>
 
     <div class="social-icons">
       <a href="mailto:absorbguo@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -130,13 +171,26 @@
   </div>
 
   <div>
-    <img src="images/ChatGPT_Image.png" alt="Shaobo Guo" class="profile-img" />
+    <img src="./images/ChatGPT_Image.png" alt="Profile photo of Shaobo Guo" class="profile-img" />
   </div>
-</div>
+</main>
 
 <footer>
   &copy; 2025 Shaobo Guo. Hosted on GitHub Pages.
 </footer>
+
+<script>
+  const langBtn = document.getElementById('langBtn');
+  const introEn = document.getElementById('intro-en');
+  const introZh = document.getElementById('intro-zh');
+
+  langBtn.addEventListener('click', () => {
+    const isEnglish = introEn.style.display !== 'none';
+    introEn.style.display = isEnglish ? 'none' : 'block';
+    introZh.style.display = isEnglish ? 'block' : 'none';
+    langBtn.textContent = isEnglish ? 'EN' : '中文';
+  });
+</script>
 
 </body>
 </html>
